@@ -54,6 +54,28 @@ const password3 = 'like a BOSS';
 // Being sure to do all that's outlined above, write
 // your code below!
 
+const userEmail = process.argv[2];
+const userPassword = process.argv[3];
+
+if (   passwordMatches( userEmail, userPassword ) && isRegisteredUser( userEmail )) 
+  console.log( "✅ You are signed in ✅" )
+
+
+if ( ! passwordMatches( userEmail, userPassword ) && isRegisteredUser( userEmail )) 
+  console.log( 'Incorrect Password❗' )
+
+
+if ( ! isRegisteredUser( userEmail ) && ! isValidEmail(userEmail) && isValidPassword(userPassword)) 
+  console.log ( "You're signed up!" )
+
+
+if ( ! isRegisteredUser( userEmail ) && ! isValidEmail( userEmail )) 
+console.log ( "Your email is not valid❗ Register now to join the domain ✊" )
+
+
+if ( ! isRegisteredUser( userEmail ) && ! isValidPassword( userPassword )) 
+console.log ( "Invalid password❗ Email does not exist 👀 👀." )
+
 
 
 
@@ -89,11 +111,11 @@ function passwordMatches(email, password) {
 // you don't want to use `process.argv` directly.
 
 function getEmail() {
-    return process.argv[2];
+  return process.argv[2];
 }
 
 function getPassword() {
-    return process.argv[3];
+  return process.argv[3];
 }
 
 
